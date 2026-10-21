@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.env
+node_modules/
+reports/validation_report.json
+reports/nav_observations.csv
+reports/validation_report.html
+*.log
+.DS_Store
+*.py[cod]
+reports/newman-results.json

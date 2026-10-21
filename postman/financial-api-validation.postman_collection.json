@@ -1,0 +1,61 @@
+{
+  "info": {
+    "_postman_id": "a1d7f4c2-8f13-4b11-9f10-8bb51ef1d202",
+    "name": "Financial API Validation - MFAPI NAV",
+    "description": "Public mutual-fund NAV API checks. Uses no credentials. Update scheme_code if the example scheme is unavailable.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://api.mfapi.in/mf"
+    },
+    {
+      "key": "scheme_code",
+      "value": "119551"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get scheme metadata and NAV history",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        
+        "url": {
+          "raw": "https://api.mfapi.in/mf/{{scheme_code}}",
+          "protocol": "https",
+          "host": ["api", "mfapi", "in"],
+          "path": ["mf", "{{scheme_code}}"]
+        },
+        "description": "Fetches scheme metadata and historical NAV observations from MFAPI.in."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP status is 200', function () { pm.response.to.have.status(200); });",
+              "pm.test('Response content type is JSON', function () { pm.expect(pm.response.headers.get('Content-Type') || '').to.include('application/json'); });",
+              "let body = {};",
+              "pm.test('Response body parses as JSON', function () { body = pm.response.json(); pm.expect(body).to.be.an('object'); });",
+              "pm.test('Metadata object exists', function () { pm.expect(body).to.have.property('meta'); pm.expect(body.meta).to.be.an('object'); });",
+              "pm.test('Scheme name is a non-empty string', function () { pm.expect(body.meta.scheme_name).to.be.a('string').and.not.empty; });",
+              "pm.test('NAV history is a non-empty array', function () { pm.expect(body.data).to.be.an('array').that.is.not.empty; });",
+              "pm.test('NAV observations contain date and positive numeric NAV', function () { body.data.forEach(function (row) { pm.expect(row).to.have.property('date'); pm.expect(String(row.date)).to.not.equal(''); pm.expect(Number(row.nav)).to.be.a('number'); pm.expect(Number(row.nav)).to.be.above(0); }); });",
+              "pm.test('NAV observation dates are unique', function () { const dates = body.data.map(function (row) { return row.date; }); pm.expect(new Set(dates).size).to.eql(dates.length); });",
+              "pm.test('Response status is SUCCESS when supplied', function () { if (body.status !== undefined) pm.expect(body.status).to.eql('SUCCESS'); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    }
+  ]
+}

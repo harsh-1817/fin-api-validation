@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "fund_house": "Example Mutual Fund (synthetic fixture)",
+    "scheme_type": "Open Ended Schemes",
+    "scheme_category": "Example Category",
+    "scheme_code": 999999,
+    "scheme_name": "Synthetic NAV Validation Fixture - Not a Real Fund"
+  },
+  "data": [
+    {"date": "05-Jan-2025", "nav": "101.00"},
+    {"date": "04-Jan-2025", "nav": "100.50"},
+    {"date": "03-Jan-2025", "nav": "100.00"},
+    {"date": "02-Jan-2025", "nav": "99.80"},
+    {"date": "01-Jan-2025", "nav": "99.50"}
+  ],
+  "status": "SUCCESS"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "fin-api-validation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Postman and Newman tests for a public mutual-fund NAV API",
+  "scripts": {
+    "test": "newman run postman/financial-api-validation.postman_collection.json -e postman/financial-api-validation.postman_environment.json --reporters cli,json --reporter-json-export reports/newman-results.json"
+  },
+  "devDependencies": {
+    "newman": "^6.2.1"
+  }
+}
