@@ -4,6 +4,17 @@ A portfolio project that tests a public mutual-fund NAV API with **Postman + New
 
 > **Data note:** The default live source is the public [MFAPI.in](https://www.mfapi.in/) mutual-fund API. Fixture data in `fixtures/` is synthetic and is used only for repeatable offline tests. This project is independent and does not use confidential employer data or private endpoints.
 
+## Project Screenshots
+
+### API Validation Dashboard
+![API Validation Dashboard](screenshots/validation-report.png)
+
+### Postman/Newman Test Results
+![Postman/Newman Test Results](screenshots/postman-test-results.png)
+
+### GitHub Actions — Successful CI Run
+![GitHub Actions Successful Run](screenshots/github-actions.png)
+
 ## Why this project matters
 
 Financial data is only useful when it is timely, complete, and internally consistent. This framework demonstrates a practical validation layer between a third-party financial API and a downstream analytics pipeline.
