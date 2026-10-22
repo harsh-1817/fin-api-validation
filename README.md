@@ -1,4 +1,8 @@
+> **Note:** This is V1 and The improved v2 is here: [mf-nav-api-validation](https://github.com/harsh-1817/mf-nav-api-validation)
+
 # Financial API Testing & Data Validation Framework
+
+![tests](https://github.com/harsh-1817/fin-api-validation/actions/workflows/tests.yml/badge.svg)
 
 A portfolio project that tests a public mutual-fund NAV API with **Postman + Newman + Python**. It checks API availability and response structure, then runs data-quality rules on the returned NAV history and exports machine-readable and human-readable reports.
 
