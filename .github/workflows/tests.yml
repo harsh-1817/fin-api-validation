@@ -1,5 +1,5 @@
 
-name: Python validation tests
+name: Validation tests
 
 on:
   push:
