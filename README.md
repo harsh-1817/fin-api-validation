@@ -179,3 +179,11 @@ Only add a numeric test/assertion count to your resume after you have run the co
 3. Replace the demo report only with a report you have generated yourself, or keep it clearly labelled as synthetic.
 4. Add a screenshot of the HTML report or Postman test results to the README if desired.
 5. Commit with a descriptive message, e.g. `Add NAV API validation pipeline and reports`.
+
+
+## Author
+
+**Harsh Trivedi**  
+**MBA (Computer Management) | Data Analytics & Financial Markets**
+
+**Certifications:** NISM Research Analyst (Series XV) · NISM Equity Derivatives (Series VIII)
